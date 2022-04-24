@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="xposed_scope">
+        <item>com.tencent.mobileqq</item>
+        <item>com.github.haocen2004.bh3_login_simulation</item>
+        <item>com.github.haocen2004.bh3_login_simulation.dev</item>
+    </string-array>
+</resources>
