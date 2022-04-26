@@ -7,32 +7,13 @@ import de.robv.android.xposed.XposedHelpers
 import android.app.Activity
 import de.robv.android.xposed.XC_MethodHook
 import android.os.Bundle
+import xyz.hellocraft.scannerpatcher.Utils.bytes2HexStr
 import java.lang.Exception
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
-import kotlin.experimental.and
 
 class TencentHook(lpparam: LoadPackageParam) {
     companion object {
-        private val digits = charArrayOf(
-            '0',
-            '1',
-            '2',
-            '3',
-            '4',
-            '5',
-            '6',
-            '7',
-            '8',
-            '9',
-            'A',
-            'B',
-            'C',
-            'D',
-            'E',
-            'F'
-        )
-
         @Throws(NoSuchAlgorithmException::class)
         private fun a(): Array<String?> {
             val messageDigest = MessageDigest.getInstance("MD5")
@@ -52,25 +33,6 @@ class TencentHook(lpparam: LoadPackageParam) {
             strArr[1] = signature
             strArr[2] = sb2
             return strArr
-        }
-
-        private fun bytes2HexStr(var0: ByteArray?): String? {
-            return if (var0 != null && var0.isNotEmpty()) {
-                val var1 = CharArray(var0.size * 2)
-                for (var2 in var0.indices) {
-                    val var3 = var0[var2]
-                    var var4: Int
-                    val var5 = var2 * 2.also { var4 = it } + 1
-                    val var6: CharArray = digits
-                    var1[var5] = var6[(var3 and 15).toInt()]
-                    val var10002 = (var3.toInt().ushr(4)).toByte()
-                    val var7 = var4 + 0
-                    var1[var7] = var6[(var10002 and 15).toInt()]
-                }
-                String(var1)
-            } else {
-                null
-            }
         }
     }
 

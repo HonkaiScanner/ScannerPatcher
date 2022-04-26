@@ -10,16 +10,21 @@ android {
         applicationId "xyz.hellocraft.scannerpatcher"
         minSdk 21
         targetSdk 32
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "1.0.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "[Xposed]ScannerPatcher-${variant.name}-${variant.versionName}.apk"
         }
     }
     compileOptions {
@@ -32,7 +37,6 @@ android {
 }
 
 dependencies {
-
     compileOnly("de.robv.android.xposed:api:82")
     compileOnly("de.robv.android.xposed:api:82:sources")
 }

@@ -11,9 +11,9 @@
       "type": "SINGLE",
       "filters": [],
       "attributes": [],
-      "versionCode": 1,
-      "versionName": "1.0",
-      "outputFile": "app-release.apk"
+      "versionCode": 2,
+      "versionName": "1.0.1",
+      "outputFile": "[Xposed]ScannerPatcher-release-1.0.1.apk"
     }
   ],
   "elementType": "File"

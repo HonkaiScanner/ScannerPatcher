@@ -9,6 +9,7 @@ class MainHook : IXposedHookLoadPackage {
         when (lpparam?.packageName) {
             "com.tencent.mobileqq" -> {
                 XposedBridge.log("Hook QQ")
+                TencentHook(lpparam)
             }
             "com.github.haocen2004.bh3_login_simulation" -> {
                 XposedBridge.log("Hook Scanner")
